@@ -94,7 +94,8 @@ function show(n){
   const x=b.ex.map(e=>Array.isArray(e[1])
     ?`<div><p class="q">${e[0]}</p><div class="opts">${e[1].map((o,k)=>`<button class="opt" ${k===e[2]?'data-ok="1"':""}>${ABC[k]}. ${o}</button>`).join("")}</div></div>`
     :`<div class="ans" tabindex="0"><p class="q">${e[0]}</p><p class="a">${e[1]}</p></div>`).join("");
-  B.innerHTML=b.ps.map(para).join("")+`<section class="box"><h3>Luyện tập: ${b.xt}</h3><div class="X">${x}</div></section>`;
+  const audio=`<section class="box"><h3>Nghe bài đọc ${b.n}</h3><audio controls preload="none" style="width:100%" src="audio/bai${b.n}.mp3">Trình duyệt không hỗ trợ phát audio.</audio></section>`;
+  B.innerHTML=audio+b.ps.map(para).join("")+`<section class="box"><h3>Luyện tập: ${b.xt}</h3><div class="X">${x}</div></section>`;
   scrollTo(0,0);
 }
 const clr=pr=>$$("w.sel,.V li.sel",pr).forEach(x=>x.classList.remove("sel"));
